@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] public TextAsset inkJSON;
 
     private GameObject player;
     private Interact interact;
@@ -29,7 +29,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() 
     {
-        if (DialogueManager.GetInstance().choiceMade && !choiceIsMade){
+        if (playerInRange && DialogueManager.GetInstance().choiceMade && !choiceIsMade){
             choiceIsMade = true;
             selectedChoice = DialogueManager.GetInstance().selectedChoice;
             

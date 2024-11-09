@@ -7,6 +7,13 @@ public class OpenCage : MonoBehaviour
 
     private DialogueTrigger dialogueTrigger;
 
+    [Header("Ink JSON")]
+    [SerializeField] private TextAsset[] leverTexts;
+    [SerializeField] private TextAsset[] humanTexts;
+    [SerializeField] private TextAsset[] swordTexts;
+
+    private int fileIndex = 0; // first index is the standard dialogue
+
     public bool pulledLever = false;
     public bool inRange = false;
 
@@ -14,11 +21,17 @@ public class OpenCage : MonoBehaviour
     public GameObject Cage1;
     public GameObject Cage2;
 
+    [Header("Prisoned Triggers")]
+
+    public GameObject NPC;
+    public GameObject Weapon;
+
     // Start is called before the first frame update
     void Start()
     {
         // dialogueManager = GameObject.Find("DialogueManager");
         dialogueTrigger = GetComponent<DialogueTrigger>();
+        //dialogueTrigger.inkJSON = textFiles[fileIndex];
     }
 
     // Update is called once per frame
@@ -47,13 +60,19 @@ public class OpenCage : MonoBehaviour
 
         switch(choice) 
         {
-        case 0:
-            // code block
+        case 0: // Human freed
+      
             Debug.Log("CHOICE 0");
+            NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; // Thankful dialogue
+            Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
+            Cage1.SetActive(false);
             break;
-        case 1:
-            // code block
+        case 1: // Choose sword
+          
             Debug.Log("CHOICE 1");
+            NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is sad
+            Cage2.SetActive(false);
+            //Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
             break;
         default:
             // code block
