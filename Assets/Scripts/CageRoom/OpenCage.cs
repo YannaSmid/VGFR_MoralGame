@@ -56,6 +56,14 @@ public class OpenCage : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collider) 
+    {
+        if (collider.gameObject.tag == "Player")
+        { 
+            inRange = false;
+        }
+    }
+
     public void PullLever(int choice){
 
         switch(choice) 

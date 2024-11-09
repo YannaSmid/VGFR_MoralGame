@@ -32,7 +32,7 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && DialogueManager.GetInstance().choiceMade && !choiceIsMade){
             choiceIsMade = true;
             selectedChoice = DialogueManager.GetInstance().selectedChoice;
-            
+       
         }
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !choiceIsMade) 
         {
@@ -48,7 +48,6 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(false);
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
