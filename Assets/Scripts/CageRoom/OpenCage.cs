@@ -65,12 +65,13 @@ public class OpenCage : MonoBehaviour
             Debug.Log("CHOICE 0");
             NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; // Thankful dialogue
             Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
-
+            Cage1.SetActive(false);
             break;
         case 1: // Choose sword
           
             Debug.Log("CHOICE 1");
             NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is sad
+            Cage2.SetActive(false);
             //Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
             break;
         default:
