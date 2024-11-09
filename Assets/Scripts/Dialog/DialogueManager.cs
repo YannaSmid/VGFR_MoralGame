@@ -23,7 +23,8 @@ public class DialogueManager : MonoBehaviour
 
     private static DialogueManager instance;
 
-    public int choiceMade { get; private set; }
+    public int selectedChoice { get; private set; }
+    public bool choiceMade {get; private set; }
 
     
     private void Awake() 
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueIsPlaying = false;
+        choiceMade = false;
         dialoguePanel.SetActive(false);
         // player = GameObject.Find("Player");
         // interact = player.GetComponent<Interact>();
@@ -102,6 +104,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Debug.Log("End of conversation");
         dialogueIsPlaying = false;
+        choiceMade = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
@@ -147,7 +150,8 @@ public class DialogueManager : MonoBehaviour
     {
         
         currentStory.ChooseChoiceIndex(choiceIndex);
-        choiceMade = choiceIndex;
+        selectedChoice = choiceIndex;
+        choiceMade = true;
         ContinueStory();
         
     }

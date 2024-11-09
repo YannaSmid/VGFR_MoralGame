@@ -21,7 +21,7 @@ TagManager:
   - Wall
   - Player
   - Enemy
-  - 
+  - NPC
   - 
   - 
   - 
@@ -51,9 +51,15 @@ TagManager:
   - name: Foreground
     uniqueID: 2519254405
     locked: 0
+  - name: Wall
+    uniqueID: 2244780427
+    locked: 0
   - name: Player
     uniqueID: 960489153
     locked: 0
   - name: Ground
     uniqueID: 2649148703
+    locked: 0
+  - name: NPC
+    uniqueID: 1004251517
     locked: 0

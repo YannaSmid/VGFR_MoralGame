@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool playerInRange;
 
+    public bool choiceIsMade = false;
+
+    public int selectedChoice;
+
     private void Awake() 
     {
         playerInRange = false;
@@ -25,7 +29,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() 
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
+        if (DialogueManager.GetInstance().choiceMade && !choiceIsMade){
+            choiceIsMade = true;
+            selectedChoice = DialogueManager.GetInstance().selectedChoice;
+            
+        }
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !choiceIsMade) 
         {
             visualCue.SetActive(true);
             if (interact.startDialogue) 
