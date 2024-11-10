@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class CoinPickup : MonoBehaviour
 {
-    [SerializeField] private AudioClip coinSound; // Drag the coin sound effect here in the Inspector
+    [SerializeField] private AudioClip coinSound; // Drag coin sound here in the Inspector
     private AudioSource audioSource;
 
     private void Start()
     {
-        // Ensure the AudioSource component exists on the CoinPickupManager
+        // Ensure AudioSource component exists on the CoinPickupManager
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -19,13 +19,13 @@ public class CoinPickup : MonoBehaviour
 
     public void HandleCoinPickup(GameObject coin)
     {
-        // Play the coin sound
+        // Play coin sound
         if (coinSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(coinSound);
         }
 
-        // Disable the coin GameObject
+        // Disable coin GameObject
         coin.SetActive(false);
 
         Debug.Log("Coin collected and disabled!");

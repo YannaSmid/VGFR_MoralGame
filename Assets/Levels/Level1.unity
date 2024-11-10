@@ -4483,7 +4483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 2014129261}
-  inkJSON: {fileID: 4900000, guid: de6962067ec51d54abcb6d935bb4100b, type: 3}
+  inkJSON: {fileID: 4900000, guid: 42aa492a88a436f4fae14edbb2c951b9, type: 3}
   choiceIsMade: 0
   selectedChoice: 0
 --- !u!61 &212584829

@@ -1,8 +1,8 @@
 -> main
 
 === main ===
-Oh no! Someone just stole the last money I had...
-Now my grandma and I won't have anything to eat.
+Oh no! Someone just stole the last money I had.
+I'm so hungry...
 Do you have anything to spare?
     + [Yes]
         -> give_money
@@ -10,11 +10,14 @@ Do you have anything to spare?
         -> refuse_money
 
 === give_money ===
-You decided to give them your money.
+Thank you so much for your generosity.
+Now my little sister and I can finally eat something.
 -> DONE
 
 === refuse_money ===
-You refused to give them your money.
+Oh..
+I understand..
+My little sister and I will figure out how to get food another way.
 -> DONE
 
 === DONE ===
