@@ -16,8 +16,11 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerInRange;
 
     public bool choiceIsMade = false;
-
     public int selectedChoice;
+
+    // [Header("Prologue Options")]
+    // public bool prologueAvailable = false; // activate if the dialogue contains a prologue 
+    // public bool startPrologue = false;
 
     private void Awake() 
     {
@@ -32,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && DialogueManager.GetInstance().choiceMade && !choiceIsMade){
             choiceIsMade = true;
             selectedChoice = DialogueManager.GetInstance().selectedChoice;
-            
+       
         }
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !choiceIsMade) 
         {
@@ -49,7 +52,6 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Player")
@@ -64,5 +66,7 @@ public class DialogueTrigger : MonoBehaviour
         { 
             playerInRange = false;
         }
+ 
+    
     }
 }
