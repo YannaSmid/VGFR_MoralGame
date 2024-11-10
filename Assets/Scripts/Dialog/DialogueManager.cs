@@ -27,7 +27,6 @@ public class DialogueManager : MonoBehaviour
     public bool choiceMade {get; private set; }
 
 
-    
     private void Awake() 
     {
         if (instance != null)

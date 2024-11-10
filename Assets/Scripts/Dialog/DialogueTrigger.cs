@@ -16,8 +16,11 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerInRange;
 
     public bool choiceIsMade = false;
-
     public int selectedChoice;
+
+    // [Header("Prologue Options")]
+    // public bool prologueAvailable = false; // activate if the dialogue contains a prologue 
+    // public bool startPrologue = false;
 
     private void Awake() 
     {
@@ -63,5 +66,7 @@ public class DialogueTrigger : MonoBehaviour
         { 
             playerInRange = false;
         }
+ 
+    
     }
 }

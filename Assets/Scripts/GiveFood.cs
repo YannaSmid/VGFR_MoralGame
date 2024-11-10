@@ -15,6 +15,9 @@ public class GiveFood : MonoBehaviour
     public bool foodEaten = false; // choice has been made
     public bool inRange = false;
 
+    [Header("Prologue Options")]
+    [Tooltip("Set true if there is a prologue.")] public bool prologueAvailable = false;
+    private bool showPrologue = false;
     public GameObject NPCtrigger;
 
     // Start is called before the first frame update
@@ -46,6 +49,11 @@ public class GiveFood : MonoBehaviour
         { 
             inRange = false;
         }
+        if (collider.gameObject.tag == "Player" && dialogueTrigger.choiceIsMade && prologueAvailable && !showPrologue)
+        { 
+            showPrologue = true;
+            StartCoroutine(ActivatePrologue());
+        }
     }
 
     public void GiveAway(int choice){
@@ -55,13 +63,13 @@ public class GiveFood : MonoBehaviour
         case 0: // Keep food
             Debug.Log("CHOICE 0");
             NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is starving
-            StartCoroutine(ActivatePrologue());
+            //StartCoroutine(ActivatePrologue());
             break;
         case 1: // Give Food
           
             Debug.Log("CHOICE 1");
             NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[3]; // Human is happy
-            StartCoroutine(ActivatePrologue());
+            //StartCoroutine(ActivatePrologue());
             break;
         case 2: // activate choice dialogue if applicable
             this.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1];
@@ -75,9 +83,9 @@ public class GiveFood : MonoBehaviour
 
     private IEnumerator ActivatePrologue() 
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         Debug.Log("Prologue");
-        NPCtrigger.GetComponent<BoxCollider2D>().enabled = true;
+        NPCtrigger.SetActive(true);
        
     }
 }
