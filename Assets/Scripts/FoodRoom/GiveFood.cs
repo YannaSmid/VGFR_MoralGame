@@ -9,8 +9,6 @@ public class GiveFood : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset[] humanTexts;
 
-    private int fileIndex = 0; // first index is the standard dialogue
-
     public bool pickedUp = false;
     public bool foodEaten = false; // choice has been made
     public bool inRange = false;
