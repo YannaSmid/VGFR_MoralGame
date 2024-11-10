@@ -3026,12 +3026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c26c5fd5ec8b984eba4307960dee492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemies: []
 --- !u!1 &356814799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8276,7 +8271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 110686771}
-  inkJSON: {fileID: 4900000, guid: de6962067ec51d54abcb6d935bb4100b, type: 3}
+  inkJSON: {fileID: 4900000, guid: 42aa492a88a436f4fae14edbb2c951b9, type: 3}
   choiceIsMade: 0
   selectedChoice: 0
 --- !u!61 &1110944616
@@ -9223,7 +9218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6235141898098784502, guid: 6ef097aaca1c23643a506c6c573d6826, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3487296
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 6235141898098784502, guid: 6ef097aaca1c23643a506c6c573d6826, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11891,13 +11886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6c3b4493df75748aae39e9cc834ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyDecisionTexts:
-  - {fileID: 4900000, guid: af4fd35de20a7aa41b9315f9ef8a71f8, type: 3}
-  - {fileID: 4900000, guid: d921129df9b6aec43864013ba0fdc8d9, type: 3}
-  - {fileID: 4900000, guid: 33f9d16c4f5e9684588c5377f49d48d8, type: 3}
+  NPC: {fileID: 1671293544}
   decisionMade: 0
   inRange: 0
-  NPC: {fileID: 1671293544}
 --- !u!1 &1674762239
 GameObject:
   m_ObjectHideFlags: 0
@@ -15236,7 +15227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099366485}
   m_Layer: 0
-  m_Name: StarvingNPC
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

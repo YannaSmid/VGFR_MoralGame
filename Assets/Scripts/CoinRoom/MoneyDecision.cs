@@ -1,26 +1,23 @@
-using System.Collections;
 using UnityEngine;
 
 public class MoneyDecision : MonoBehaviour
 {
     private DialogueTrigger dialogueTrigger;
 
-    [Header("Ink JSON Files")]
-    [SerializeField] private TextAsset[] moneyDecisionTexts; // 0 = Default, 1 = GiveMoney, 2 = KeepMoney
+    [Header("NPC Reference")]
+    public GameObject NPC; // Reference NPC GameObject
+
+    [Header("Coin Manager")]
+    private CoinManager coinManager;
 
     public bool decisionMade = false;
     public bool inRange = false;
-
-    [Header("NPC Reference")]
-    public GameObject NPC; // Reference to NPC GameObject
-
-    private CoinManager coinManager;
 
     void Start()
     {
         dialogueTrigger = GetComponent<DialogueTrigger>();
 
-        // Find CoinManager in the scene
+        // Find CoinManager
         coinManager = FindObjectOfType<CoinManager>();
         if (coinManager == null)
         {
@@ -30,9 +27,9 @@ public class MoneyDecision : MonoBehaviour
 
     void Update()
     {
+        // Check if player made a choice while in range
         if (dialogueTrigger.choiceIsMade && !decisionMade && inRange)
         {
-            decisionMade = true;
             ApplyDecision(DialogueManager.GetInstance().selectedChoice);
         }
     }
@@ -42,22 +39,23 @@ public class MoneyDecision : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             inRange = true;
+            Debug.Log("Player entered NPC range.");
         }
     }
 
-    public void ApplyDecision(int choice)
+    private void ApplyDecision(int choice)
     {
         switch (choice)
         {
-            case 0: // Player gives all their money
+            case 0: // Player chooses to give all their money
                 Debug.Log("CHOICE 0: Gave all money.");
                 coinManager.ResetCoins(); // Reset coins using CoinManager
-                NPC.GetComponent<DialogueTrigger>().inkJSON = moneyDecisionTexts[1];
+                decisionMade = true; // Ensure this happens only once
                 break;
 
-            case 1: // Player keeps their money
+            case 1: // Player chooses to keep their money
                 Debug.Log("CHOICE 1: Kept money.");
-                NPC.GetComponent<DialogueTrigger>().inkJSON = moneyDecisionTexts[2];
+                decisionMade = true; // Ensure this happens only once
                 break;
 
             default:
