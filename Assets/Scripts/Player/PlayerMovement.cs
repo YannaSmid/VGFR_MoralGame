@@ -3,8 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Parameters")]
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpPower;
+    [SerializeField] public float speed;
+    [SerializeField] public float jumpPower;
 
     [Header("Coyote Time")]
     [SerializeField] private float coyoteTime; //How much time the player can hang in the air before jumping
