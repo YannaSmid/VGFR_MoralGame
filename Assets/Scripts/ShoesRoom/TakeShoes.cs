@@ -6,6 +6,13 @@ public class TakeShoes : MonoBehaviour
 {
 public DialogueTrigger dialogueTrigger;
 
+    [Header("Consequence Objects")]
+    [SerializeField] public GameObject leftShoe;
+    [SerializeField] public GameObject rightShoe;
+
+    public PlayerMovement player;
+    public float increment = 5;
+
     [Header("Ink JSON")]
     [SerializeField] private TextAsset[] humanTexts;
     public bool inRange = false;
@@ -56,15 +63,17 @@ public DialogueTrigger dialogueTrigger;
         // Only do this if you want still want ot be able to interact with object after choice is made
         switch(choice) 
         {
-        case 0: // Steal shoes
+        case 0: // Let them keep the shoes
             Debug.Log("CHOICE 0");
-            NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; // Human is starving
+            NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; 
             //StartCoroutine(ActivatePrologue());
             break;
-        case 1: // Let them keep the shoes
-          
+        case 1: // Steal the shoes
             Debug.Log("CHOICE 1");
-            NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is happy
+            leftShoe.SetActive(false);
+            rightShoe.SetActive(false);
+            NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; 
+            player.jumpPower += increment;
             //StartCoroutine(ActivatePrologue());
             break;
         case 2: // activate choice dialogue if applicable
