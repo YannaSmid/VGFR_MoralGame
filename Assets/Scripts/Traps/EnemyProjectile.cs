@@ -28,6 +28,7 @@ public class EnemyProjectile : EnemyDamage
         if (hit) return;
         float movementSpeed = speed * Time.deltaTime;
         transform.Translate(movementSpeed, 0, 0);
+        Debug.Log(movementSpeed);
 
         lifetime += Time.deltaTime;
         if (lifetime > resetTime)
@@ -37,6 +38,8 @@ public class EnemyProjectile : EnemyDamage
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hit = true;
+        Debug.Log("HIT");
+        Debug.Log(collision.gameObject.name);
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first
         coll.enabled = false;
 
