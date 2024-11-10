@@ -3374,4 +3374,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.16666667
+    functionName: Fireball
+    data: 
+    objectReferenceParameter: {fileID: 9100000, guid: 3daaaae0fb4e0f143a04f1abd9371de7, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
