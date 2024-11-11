@@ -28,7 +28,7 @@ public class SwordSlash : MonoBehaviour
             return;
         }
         lifetime += Time.deltaTime;
-        if (lifetime > 2){
+        if (lifetime > 0.5){
             slashing = false;
             gameObject.SetActive(false);
         }
@@ -48,7 +48,7 @@ public class SwordSlash : MonoBehaviour
         
         if (collision.tag == "Enemy" && slashing){
 
-            collision.GetComponent<Health>()?.TakeDamage(1);
+            collision.GetComponent<EnemyHealth>()?.TakeDamage(1);
             Debug.Log("Hit someone");
             slashing = false;
             hit = true;
