@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Checkpoint
   - coin
+  - Fire
   layers:
   - Default
   - TransparentFX
