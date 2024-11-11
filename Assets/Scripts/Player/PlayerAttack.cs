@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AudioClip fireballSound;
 
     public bool hasFire = false;
+    public bool hasSword = false;
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -21,14 +22,22 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (!hasFire){
+        if (!hasFire && !hasSword){
             return;
         }
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.canAttack()
+        if (Input.GetMouseButton(0) && hasSword && cooldownTimer > attackCooldown && playerMovement.canAttack()
+            && Time.timeScale > 0){
+            MeleeAttack();
+        }
+        if (Input.GetMouseButton(0) && hasFire && cooldownTimer > attackCooldown && playerMovement.canAttack()
             && Time.timeScale > 0)
             Attack();
 
         cooldownTimer += Time.deltaTime;
+    }
+
+    private void MeleeAttack(){
+        anim.SetTrigger("meleeattack");
     }
 
     private void Attack()

@@ -6,6 +6,7 @@ public class OpenCage : MonoBehaviour
 {
 
     private DialogueTrigger dialogueTrigger;
+    
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset[] leverTexts;
@@ -31,6 +32,7 @@ public class OpenCage : MonoBehaviour
     {
         // dialogueManager = GameObject.Find("DialogueManager");
         dialogueTrigger = GetComponent<DialogueTrigger>();
+        
         //dialogueTrigger.inkJSON = textFiles[fileIndex];
     }
 
@@ -80,6 +82,7 @@ public class OpenCage : MonoBehaviour
             Debug.Log("CHOICE 1");
             NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is sad
             Cage2.SetActive(false);
+            Weapon.transform.parent.gameObject.GetComponent<PickUpSword>().swordAvailable = true;
             //Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
             break;
         default:
