@@ -28,6 +28,10 @@ public class PlayerAttack : MonoBehaviour
         if (!hasFire && !hasSword){
             return;
         }
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
         if (Input.GetMouseButton(0) && hasSword && cooldownTimer > attackCooldown && playerMovement.canAttack()
             && Time.timeScale > 0){
             MeleeAttack();

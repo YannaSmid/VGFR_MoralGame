@@ -19,10 +19,10 @@ public class Interact : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.I))
             canInteract();
 
-        if (Input.GetKeyUp(KeyCode.Q)){
+        if (Input.GetKeyUp(KeyCode.I)){
             Debug.Log("stop interacting");
             cannotInteract();
         }
