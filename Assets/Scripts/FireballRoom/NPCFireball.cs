@@ -62,7 +62,6 @@ public class NPCFireball : MonoBehaviour
 
     private void RangedAttack()
     {
-        Debug.Log("Start attack");
         SoundManager.instance.PlaySound(fireballSound);
         cooldownTimer = 0;
         fireballs[FindFireball()].transform.position = firepoint.position;
