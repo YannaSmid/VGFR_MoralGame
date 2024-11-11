@@ -7,6 +7,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
 
+    [SerializeField] private Transform swordPoint;
+    [SerializeField] private AudioClip swordSound;
+
     public bool hasFire = false;
     public bool hasSword = false;
 
@@ -37,7 +40,12 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void MeleeAttack(){
+        SoundManager.instance.PlaySound(swordSound);
         anim.SetTrigger("meleeattack");
+        cooldownTimer = 0;
+        swordPoint.GetComponent<SwordSlash>().SlashAttack();
+
+
     }
 
     private void Attack()
