@@ -1,17 +1,19 @@
 using UnityEngine;
 
-public class FireChoice : MonoBehaviour
+public class FireChoice: MonoBehaviour
 {
     [Header("Fire GameObject")]
-    [SerializeField] private GameObject fireObject; // Reference fire GameObject
+    [SerializeField] private GameObject fireObject; // Reference to fire GameObject
 
     [Header("Dialogue GameObject")]
-    [SerializeField] private GameObject dialogueObject; // Reference dialogue GameObject
+    [SerializeField] private GameObject dialogueObject; // Reference to dialogue GameObject
 
     [Header("NPC Decision")]
     private DialogueTrigger dialogueTrigger;
     public bool decisionMade = false;
     public bool inRange = false;
+
+    public static bool fireDamageDisabled = false; // Flag to disable fire damage globally
 
     void Start()
     {
@@ -54,6 +56,7 @@ public class FireChoice : MonoBehaviour
                 Debug.Log("CHOICE 0: Player chose to help the NPC.");
                 DisableFire();
                 EnableDialogue();
+               // DisableFireDamage()
                 decisionMade = true; // Prevent further execution
                 break;
 
@@ -72,7 +75,7 @@ public class FireChoice : MonoBehaviour
     {
         if (fireObject != null)
         {
-            fireObject.SetActive(false); // Disable fire GameObjects
+            fireObject.SetActive(false); // Disable fire GameObject
             Debug.Log("Fire has been disabled!");
         }
     }
@@ -81,8 +84,14 @@ public class FireChoice : MonoBehaviour
     {
         if (dialogueObject != null)
         {
-            dialogueObject.SetActive(true); // Enable NPC dialogue GameObject
+            dialogueObject.SetActive(true); // Enable dialogue GameObject
             Debug.Log("Dialogue object has been enabled!");
         }
+    }
+
+    private void DisableFireDamage()
+    {
+        fireDamageDisabled = true; // Disable fire damage
+        Debug.Log("Fire damage has been disabled.");
     }
 }
