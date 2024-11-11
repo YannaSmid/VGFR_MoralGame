@@ -68,7 +68,9 @@ public class GiveFood : MonoBehaviour
                 Health playerHealth = player.GetComponent<Health>();
                 if (playerHealth != null)
                 {
-                    playerHealth.AddHealth(1.0f); // Add 1 heart to player's health
+                    playerHealth.startingHealth += 1f;
+                    playerHealth.AddHealth(playerHealth.startingHealth); // Add 1 heart to player's health
+                    
                     Debug.Log("Player gained 1 heart!");
                 }
                 else
