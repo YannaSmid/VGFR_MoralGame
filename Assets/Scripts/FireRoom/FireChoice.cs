@@ -1,24 +1,32 @@
 using UnityEngine;
+using System.Collections;
 
 public class FireChoice : MonoBehaviour
 {
     [Header("Fire GameObject")]
-    [SerializeField] private GameObject fireObject; // Reference to fire GameObject
+    [SerializeField] private GameObject fireObject; // Reference to fire
 
     [Header("Dialogue GameObject")]
-    [SerializeField] private GameObject dialogueObject; // Reference to dialogue GameObject
+    [SerializeField] private GameObject dialogueObject; // Reference to dialogue
 
     [Header("Visual Cue GameObject")]
-    [SerializeField] private GameObject visualCueObject; // Reference to NPC's visual cue GameObject
+    [SerializeField] private GameObject visualCueObject; // Reference to NPC's visual cue
 
     [Header("NPC Decision")]
     private DialogueTrigger dialogueTrigger;
     public bool decisionMade = false;
     public bool inRange = false;
+    public SPUM_Prefabs _prefabs;
 
     public static bool fireDamageDisabled = false; // Disable fire damage globally
 
     private bool visualCueTriggered = false; // Tracks if visual cue has been triggered
+
+    [Header("FireDeath GameObject")]
+    [SerializeField] private GameObject fireDeath; // FireDeath GameObject that gets enabled when not helping NPC
+
+    [Header("smokeDeath GameObject")]
+    [SerializeField] private GameObject smokeDeath; // Smoke gets enabled when NPC has died
 
     void Start() 
     {
@@ -71,14 +79,17 @@ public class FireChoice : MonoBehaviour
         switch (choice)
         {
             case 0: // Player chooses to help NPC
-                Debug.Log("CHOICE 0: Player chose to help the NPC.");
+                Debug.Log("Player chose to help the NPC.");
                 DisableFire();
                 EnableDialogue();
                 decisionMade = true; // Prevent further execution
                 break;
 
             case 1: // Player chooses not to help
-                Debug.Log("CHOICE 1: Player chose not to help the NPC.");
+                Debug.Log("Player chose not to help the NPC.");
+                fireDeath.SetActive(true); // Flames show up
+                _prefabs.PlayAnimation(2); // NPC dies
+                StartCoroutine(EnableWithDelay(1.0f)); // Start the coroutine with a 1-second delay for smoke
                 decisionMade = true; // Prevent further execution
                 break;
 
@@ -110,5 +121,12 @@ public class FireChoice : MonoBehaviour
     {
         fireDamageDisabled = true; // Disable fire damage
         Debug.Log("Fire damage has been disabled.");
+    }
+
+    private IEnumerator EnableWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for specified delay
+        smokeDeath.SetActive(true); // Enable smoke
+        Debug.Log("Smokeeeee"); 
     }
 }
