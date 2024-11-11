@@ -71,7 +71,10 @@ public class DialogueManager : MonoBehaviour
         if (!dialogueIsPlaying){
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space)){
+        // if (Input.GetKeyDown(KeyCode.Space)){
+        //     ContinueStory();
+        // }
+        if (Input.GetMouseButtonDown(0)){
             ContinueStory();
         }
     }
