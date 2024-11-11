@@ -10,7 +10,6 @@ I'm trapped by the fire.
         -> chosen("to not help the villager.")
     
 === chosen(fire) ===
-You chose {fire}.
+<i> You chose {fire}. </i>
 -> END
-
 
