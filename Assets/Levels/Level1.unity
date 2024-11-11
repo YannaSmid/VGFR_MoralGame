@@ -16339,6 +16339,7 @@ MonoBehaviour:
   choices:
   - {fileID: 1210165451}
   - {fileID: 2020767940}
+  choicesDisplayed: 0
 --- !u!4 &978877956
 Transform:
   m_ObjectHideFlags: 0
@@ -28723,7 +28724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1820348984
 Transform:
   m_ObjectHideFlags: 0
@@ -28732,7 +28733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820348983}
   m_LocalRotation: {x: -0, y: -0, z: -0.4942615, w: 0.86931324}
-  m_LocalPosition: {x: 1.16, y: 0.68, z: 0.23602122}
+  m_LocalPosition: {x: 1.23, y: 0.56, z: 0.23602122}
   m_LocalScale: {x: 0.115, y: 0.115, z: 1}
   m_Children: []
   m_Father: {fileID: 8997824853891724679}

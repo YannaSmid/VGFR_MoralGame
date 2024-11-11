@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     private static DialogueManager instance;
 
+    public bool choicesDisplayed = false;
     public int selectedChoice { get; private set; }
     public bool choiceMade {get; private set; }
 
@@ -74,7 +75,7 @@ public class DialogueManager : MonoBehaviour
         // if (Input.GetKeyDown(KeyCode.Space)){
         //     ContinueStory();
         // }
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) && !choicesDisplayed){
             ContinueStory();
         }
     }
@@ -114,6 +115,7 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayChoices() 
     {
+        
         List<Choice> currentChoices = currentStory.currentChoices;
 
         // defensive check to make sure our UI can support the number of choices coming in
@@ -125,6 +127,9 @@ public class DialogueManager : MonoBehaviour
 
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
+        if (currentChoices.Count > 0) {
+            choicesDisplayed = true;
+        }
         foreach(Choice choice in currentChoices) 
         {
             choices[index].gameObject.SetActive(true);
@@ -155,6 +160,7 @@ public class DialogueManager : MonoBehaviour
         currentStory.ChooseChoiceIndex(choiceIndex);
         selectedChoice = choiceIndex;
         choiceMade = true;
+        choicesDisplayed = false;
         ContinueStory();
         
     }
