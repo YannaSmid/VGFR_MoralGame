@@ -18,7 +18,7 @@ public class CoinManager : MonoBehaviour
 
         if (coinCounterText == null)
         {
-            Debug.LogError("Coin Counter TextMeshPro object not found! Check the hierarchy and ensure the name is correct.");
+            Debug.LogError("Coin Counter TextMeshPro object not found!");
         }
 
         // Initialize UI
