@@ -5047,6 +5047,7 @@ GameObject:
   - component: {fileID: 435339980}
   - component: {fileID: 435339982}
   - component: {fileID: 435339981}
+  - component: {fileID: 435339983}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -5110,6 +5111,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1582868, y: 2.0656252}
   m_EdgeRadius: 0
+--- !u!114 &435339983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435339979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a0c2d21c918a145b417fffddd53a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireObject: {fileID: 1166155611}
+  dialogueObject: {fileID: 534732174}
+  decisionMade: 0
+  inRange: 0
 --- !u!1 &441035778
 GameObject:
   m_ObjectHideFlags: 0
@@ -6112,7 +6129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &534732175
 Transform:
   m_ObjectHideFlags: 0
