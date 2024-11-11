@@ -61,8 +61,22 @@ public class GiveFood : MonoBehaviour
         case 0: // Keep food
             Debug.Log("CHOICE 0");
             NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is starving
-            //StartCoroutine(ActivatePrologue());
-            break;
+                                                                                //StartCoroutine(ActivatePrologue());
+            GameObject player = GameObject.FindWithTag("Player"); // Find player
+            if (player != null)
+            {
+                Health playerHealth = player.GetComponent<Health>();
+                if (playerHealth != null)
+                {
+                    playerHealth.AddHealth(1.0f); // Add 1 heart to player's health
+                    Debug.Log("Player gained 1 heart!");
+                }
+                else
+                {
+                    Debug.LogError("Health component is missing on the Player GameObject!");
+                }
+             }
+             break;
         case 1: // Give Food
           
             Debug.Log("CHOICE 1");
