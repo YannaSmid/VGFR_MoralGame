@@ -10,9 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime; //How much time the player can hang in the air before jumping
     private float coyoteCounter; //How much time passed since the player ran off the edge
 
-    [Header("Multiple Jumps")]
-    [SerializeField] private int extraJumps;
-    private int jumpCounter;
 
     [Header("Wall Jumping")]
     [SerializeField] private float wallJumpX; //Horizontal wall jump force
@@ -31,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+
+    public bool canJump = true; // Tracks if player can jump
+
 
     private void Awake()
     {
@@ -69,56 +69,53 @@ public class PlayerMovement : MonoBehaviour
 
         if (onWall())
         {
-            body.gravityScale = 0;
-            body.velocity = Vector2.zero;
+            // Allow sliding
+            body.velocity = new Vector2(0, Mathf.Max(body.velocity.y, -5)); // Limit slide speed to -5
         }
         else
         {
-            body.gravityScale = 7;
+            body.gravityScale = 7; // Ensure gravity when not on wall
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             if (isGrounded())
             {
-                coyoteCounter = coyoteTime; //Reset coyote counter when on the ground
-                jumpCounter = extraJumps; //Reset jump counter to extra jump value
+                coyoteCounter = coyoteTime; // Reset coyote counter when on ground
+                canJump = true; // Allow jumping again when grounded
             }
-            else
-                coyoteCounter -= Time.deltaTime; //Start decreasing coyote counter when not on the ground
+            else if (coyoteCounter > 0)
+            {
+                coyoteCounter -= Time.deltaTime; // Decrease coyote counter in air
+            }
+
         }
     }
+
 
     private void Jump()
     {
-        if (coyoteCounter <= 0 && !onWall() && jumpCounter <= 0) return; 
-        //If coyote counter is 0 or less and not on the wall and don't have any extra jumps don't do anything
+        // Allow jump only if grounded, within coyote time, or on a wall, and ensure the player hasn't jumped already
+        if ((!isGrounded() && coyoteCounter <= 0 && !onWall()) || !canJump) return;
 
+        // Play jump sound
         SoundManager.instance.PlaySound(jumpSound);
 
         if (onWall())
-            WallJump();
+        {
+            WallJump(); // Perform wall jump
+        }
         else
         {
-            if (isGrounded())
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
-            else
-            {
-                //If not on the ground and coyote counter bigger than 0 do a normal jump
-                if (coyoteCounter > 0)
-                    body.velocity = new Vector2(body.velocity.x, jumpPower);
-                else
-                {
-                    if (jumpCounter > 0) //If we have extra jumps then jump and decrease the jump counter
-                    {
-                        body.velocity = new Vector2(body.velocity.x, jumpPower);
-                        jumpCounter--;
-                    }
-                }
-            }
-
-            //Reset coyote counter to 0 to avoid double jumps
-            coyoteCounter = 0;
+            // Perform normal jump
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
+
+        // Disable jumping until the player is grounded again
+        canJump = false;
+
+        // Reset coyote time to prevent additional air jumps
+        coyoteCounter = 0;
     }
+
 
     private void WallJump()
     {
