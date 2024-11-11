@@ -5,6 +5,7 @@ using UnityEngine;
 public class StealFireMagic : MonoBehaviour
 {
     public DialogueTrigger dialogueTrigger;
+    [SerializeField] private PlayerAttack player;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset[] humanTexts;
@@ -22,6 +23,7 @@ public class StealFireMagic : MonoBehaviour
     void Start()
     {
         //dialogueTrigger = NPC.GetComponent<DialogueTrigger>();
+        player = GameObject.Find("Player").GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -61,13 +63,14 @@ public class StealFireMagic : MonoBehaviour
         case 0: // Let her live
             Debug.Log("CHOICE 0");
             NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; // 
-            //StartCoroutine(ActivatePrologue());
+            player.hasFire = true;
             break;
         case 1: // Kill her
             Debug.Log("CHOICE 1");
             npcFireMagic.enabled = false;
+            prologueAvailable = false;
             _prefabs.PlayAnimation(2);
-            //StartCoroutine(ActivatePrologue());
+            player.hasFire = true;
             break;
         case 2: // activate choice dialogue if applicable
             break;

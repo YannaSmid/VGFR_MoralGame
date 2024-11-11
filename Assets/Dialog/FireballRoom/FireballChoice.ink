@@ -10,16 +10,15 @@ Hyuuu.
 
     + [Good luck]
         -> gl("wished her the best.")
-    + [Kill her]
+    + [Kill her to take over her power]
         -> stolen("killed her... You took over her fireball magic. But at what cost...")
         
 === gl(choice) ===
 <i>You {choice}</i>
-Hyaaa... Thanks! 
-Feel free to-
-Hyuuu...
-Use my training ground as well.
-Hyeee...
+Hyaaa... 
+Thanks! Let me teach you how to use fireball magic.
+Hyeee..
+<b>You can now shoot fireballs with your left mouse button!</b>
 
 -> END
 
