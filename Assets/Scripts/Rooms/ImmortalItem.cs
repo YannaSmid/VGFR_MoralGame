@@ -11,6 +11,7 @@ public class ImmortalItem : MonoBehaviour
     float m_Value = 1f;
 
     public float changeSpeed = 0.1f;
+    [SerializeField] private AudioClip itemSound;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class ImmortalItem : MonoBehaviour
 
         player.GetComponent<Health>().invulnerable = true;
         this.gameObject.SetActive(false);
+        SoundManager.instance.PlaySound(itemSound);
 
     }
 }

@@ -11,6 +11,7 @@ public class GiveFood : MonoBehaviour
 
     public bool pickedUp = false;
     public bool foodEaten = false; // choice has been made
+    [SerializeField] private AudioClip eatingSound;
     public bool inRange = false;
 
     [Header("Prologue Options")]
@@ -61,7 +62,7 @@ public class GiveFood : MonoBehaviour
         case 0: // Keep food
             Debug.Log("CHOICE 0");
             NPCtrigger.GetComponent<DialogueTrigger>().inkJSON = humanTexts[2]; // Human is starving
-                                                                                //StartCoroutine(ActivatePrologue());
+            SoundManager.instance.PlaySound(eatingSound);
             GameObject player = GameObject.FindWithTag("Player"); // Find player
             if (player != null)
             {
