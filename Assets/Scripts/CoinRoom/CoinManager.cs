@@ -10,7 +10,7 @@ public class CoinManager : MonoBehaviour
     private void Start()
     {
         // Find CoinCount UI Text in the hierarchy
-        GameObject coinTextObject = GameObject.Find("Core/UICanvas/CoinCount");
+        GameObject coinTextObject = GameObject.Find("Core/UICanvas/Coin/CoinCount");
         if (coinTextObject != null)
         {
             coinCounterText = coinTextObject.GetComponent<TextMeshProUGUI>();
