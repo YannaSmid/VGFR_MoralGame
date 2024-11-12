@@ -27,27 +27,29 @@ public class DoorChoice : MonoBehaviour
         // Disable door blocker based on whether decision has been made
         if (decisionTracker != null)
         {
-            doorCollider.enabled = !decisionTracker.choiceIsMade; // Block the door if decision not made
+            doorCollider.enabled = !decisionTracker.choiceIsMade; // Block door if decision not made
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            // Move player to next or previous room based on their position
             if (collision.transform.position.x < transform.position.x)
             {
-                cam.MoveToNewRoom(nextRoom);
-                nextRoom.GetComponent<Room>().ActivateRoom(true);
-                previousRoom.GetComponent<Room>().ActivateRoom(false);
+                MoveToRoom(nextRoom, previousRoom);
             }
             else
             {
-                cam.MoveToNewRoom(previousRoom);
-                previousRoom.GetComponent<Room>().ActivateRoom(true);
-                nextRoom.GetComponent<Room>().ActivateRoom(false);
+                MoveToRoom(previousRoom, nextRoom);
             }
         }
+    }
+
+    private void MoveToRoom(Transform targetRoom, Transform otherRoom)
+    {
+        cam.MoveToNewRoom(targetRoom);
+        targetRoom.GetComponent<Room>().ActivateRoom(true);
+        otherRoom.GetComponent<Room>().ActivateRoom(false);
     }
 }

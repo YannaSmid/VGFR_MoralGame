@@ -18,12 +18,9 @@ public class Health : MonoBehaviour
     [SerializeField] private Behaviour[] components;
     public bool invulnerable;
 
-    [Header("Death Sound")]
-    [SerializeField] private AudioClip deathSound;
-    [SerializeField] private AudioClip hurtSound;
-
     [Header("Respawn")]
-    [SerializeField] private Transform startingPosition; // Assign starting position in Inspector
+    [SerializeField] private Transform startingPosition; // Assign starting position
+    private Transform currentCheckpoint; // Tracks most recent checkpoint
 
     private void Awake()
     {
@@ -41,14 +38,12 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
-            SoundManager.instance.PlaySound(hurtSound);
         }
         else
         {
             if (!dead)
             {
                 dead = true;
-                SoundManager.instance.PlaySound(deathSound);
                 StartCoroutine(HandleRespawn());
             }
         }
@@ -76,17 +71,16 @@ public class Health : MonoBehaviour
 
     private IEnumerator HandleRespawn()
     {
-        // Delay to allow death animation or sound to finish
-        yield return new WaitForSeconds(1.2f);
+        // Delay to allow death animation or sound to finish if needed
+        yield return new WaitForSeconds(1f);
 
         Vector3 respawnPosition;
 
-        // Check if last door position exists
-        if (Door.lastDoorPosition != null)
+        // Check if a checkpoint exists
+        if (currentCheckpoint != null)
         {
-            // Respawn near last door
-            respawnPosition = Door.lastDoorPosition.position;
-            respawnPosition.x -= 1.5f; // Respawn 1.5 units to the left of the door
+            // Respawn at most recent checkpoint
+            respawnPosition = currentCheckpoint.position;
         }
         else if (startingPosition != null)
         {
@@ -99,29 +93,34 @@ public class Health : MonoBehaviour
             yield break;
         }
 
-        // Move the player to respawn position
+        // Move player to respawn position
         transform.position = respawnPosition;
 
-        // Move camera
-        Transform lastRoom = Door.GetLastDoorRoom();
-        if (lastRoom != null)
+        // Move camera to appropriate room
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        if (cameraController != null)
         {
-            lastRoom.GetComponent<Room>().ActivateRoom(true);
-
-            CameraController cameraController = Camera.main.GetComponent<CameraController>();
-            if (cameraController != null)
+            // Check if current checkpoint's parent exists
+            Transform room = currentCheckpoint != null ? currentCheckpoint.parent : null;
+            if (room != null)
             {
-                cameraController.MoveToNewRoom(lastRoom);
+                room.GetComponent<Room>().ActivateRoom(true);
+                cameraController.MoveToNewRoom(room);
             }
             else
             {
-                Debug.LogError("CameraController not found!");
+                Debug.LogError("Room reference for current checkpoint not found!");
             }
+        }
+        else
+        {
+            Debug.LogError("CameraController not found!");
         }
 
         // Respawn player
         Respawn();
     }
+
 
     public void Respawn()
     {
@@ -134,5 +133,15 @@ public class Health : MonoBehaviour
         // Reactivate all attached components
         foreach (Behaviour component in components)
             component.enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if player interacts with a checkpoint
+        if (collision.CompareTag("Checkpoint"))
+        {
+            currentCheckpoint = collision.transform; // Update current checkpoint
+            Debug.Log("Checkpoint updated: " + currentCheckpoint.name);
+        }
     }
 }
