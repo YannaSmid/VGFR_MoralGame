@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [Header ("Health")]
+    [Header("Health")]
     [SerializeField] public float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
@@ -22,12 +22,16 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
 
+    [Header("Respawn")]
+    [SerializeField] private Transform startingPosition; // Assign starting position in Inspector
+
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
+
     public void TakeDamage(float _damage)
     {
         if (invulnerable) return;
@@ -43,22 +47,18 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
-                //Deactivate all attached component classes
-                foreach (Behaviour component in components)
-                    component.enabled = false;
-
-                anim.SetBool("grounded", true);
-                anim.SetTrigger("die");
-
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
+                StartCoroutine(HandleRespawn());
             }
         }
     }
+
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
+
     private IEnumerator Invunerability()
     {
         invulnerable = true;
@@ -73,12 +73,56 @@ public class Health : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
         invulnerable = false;
     }
-    private void Deactivate()
+
+    private IEnumerator HandleRespawn()
     {
-        gameObject.SetActive(false);
+        // Delay to allow death animation or sound to finish
+        yield return new WaitForSeconds(1.2f);
+
+        Vector3 respawnPosition;
+
+        // Check if last door position exists
+        if (Door.lastDoorPosition != null)
+        {
+            // Respawn near last door
+            respawnPosition = Door.lastDoorPosition.position;
+            respawnPosition.x -= 1.5f; // Respawn 1.5 units to the left of the door
+        }
+        else if (startingPosition != null)
+        {
+            // Respawn at starting position
+            respawnPosition = startingPosition.position;
+        }
+        else
+        {
+            Debug.LogError("No respawn position set. Cannot respawn player.");
+            yield break;
+        }
+
+        // Move the player to respawn position
+        transform.position = respawnPosition;
+
+        // Move camera
+        Transform lastRoom = Door.GetLastDoorRoom();
+        if (lastRoom != null)
+        {
+            lastRoom.GetComponent<Room>().ActivateRoom(true);
+
+            CameraController cameraController = Camera.main.GetComponent<CameraController>();
+            if (cameraController != null)
+            {
+                cameraController.MoveToNewRoom(lastRoom);
+            }
+            else
+            {
+                Debug.LogError("CameraController not found!");
+            }
+        }
+
+        // Respawn player
+        Respawn();
     }
 
-    //Respawn
     public void Respawn()
     {
         AddHealth(startingHealth);
@@ -87,7 +131,7 @@ public class Health : MonoBehaviour
         StartCoroutine(Invunerability());
         dead = false;
 
-        //Activate all attached component classes
+        // Reactivate all attached components
         foreach (Behaviour component in components)
             component.enabled = true;
     }

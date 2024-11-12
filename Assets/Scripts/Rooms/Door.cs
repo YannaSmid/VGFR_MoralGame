@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform nextRoom;
     [SerializeField] private CameraController cam;
 
+    public static Transform lastDoorPosition; // Track last door
+
     private void Awake()
     {
         cam = Camera.main.GetComponent<CameraController>();
@@ -13,20 +15,31 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
+            // Update last door position
+            lastDoorPosition = transform;
+
             if (collision.transform.position.x < transform.position.x)
             {
-                cam.MoveToNewRoom(nextRoom);
-                nextRoom.GetComponent<Room>().ActivateRoom(true);
-                previousRoom.GetComponent<Room>().ActivateRoom(false);
+                MoveToRoom(nextRoom, previousRoom);
             }
             else
             {
-                cam.MoveToNewRoom(previousRoom);
-                previousRoom.GetComponent<Room>().ActivateRoom(true);
-                nextRoom.GetComponent<Room>().ActivateRoom(false);
+                MoveToRoom(previousRoom, nextRoom);
             }
         }
+    }
+
+    private void MoveToRoom(Transform targetRoom, Transform otherRoom)
+    {
+        cam.MoveToNewRoom(targetRoom);
+        targetRoom.GetComponent<Room>().ActivateRoom(true);
+        otherRoom.GetComponent<Room>().ActivateRoom(false);
+    }
+
+    public static Transform GetLastDoorRoom()
+    {
+        return lastDoorPosition?.parent; // Return parent room of last door
     }
 }
