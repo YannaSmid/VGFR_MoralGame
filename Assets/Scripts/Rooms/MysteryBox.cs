@@ -11,6 +11,7 @@ public class MysteryBox : MonoBehaviour
 
     public float changeSpeed = 0.1f;
     public GameObject MysteryItem;
+    [SerializeField] private AudioClip mysterySound;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +37,9 @@ public class MysteryBox : MonoBehaviour
         {
             opened = true;
             //this.gameObject.SetActive(false);
-            this.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
             MysteryItem.SetActive(true);
+            SoundManager.instance.PlaySound(mysterySound);
+            this.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
         }
     }
 }
