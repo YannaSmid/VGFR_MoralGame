@@ -72,7 +72,7 @@ public class Health : MonoBehaviour
     private IEnumerator HandleRespawn()
     {
         // Delay to allow death animation or sound to finish if needed
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         Vector3 respawnPosition;
 
