@@ -11,6 +11,7 @@ public class ImmortalItem : MonoBehaviour
     float m_Value = 1f;
 
     public float changeSpeed = 0.1f;
+    [SerializeField] public TextAsset inkJSON;
     [SerializeField] private AudioClip itemSound;
 
     // Start is called before the first frame update
@@ -45,8 +46,9 @@ public class ImmortalItem : MonoBehaviour
     private void GainImmortality(GameObject player){
 
         player.GetComponent<Health>().invulnerable = true;
-        this.gameObject.SetActive(false);
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
         SoundManager.instance.PlaySound(itemSound);
+        this.gameObject.SetActive(false);
 
     }
 }
