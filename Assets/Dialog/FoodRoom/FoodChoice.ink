@@ -8,6 +8,6 @@ I'm startving...
         -> chosen("to help the poor villager. They are very glad you helped them.")
     
 === chosen(food) ===
-You chose {food}!
+You chose {food}
 -> END
 
