@@ -27727,7 +27727,7 @@ GameObject:
   - component: {fileID: 1264383312}
   - component: {fileID: 1264383311}
   - component: {fileID: 1264383310}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: flame1 (27)
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -30698,7 +30698,7 @@ GameObject:
   - component: {fileID: 1358920912}
   - component: {fileID: 1358920911}
   - component: {fileID: 1358920910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: flame1 (26)
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -36396,7 +36396,7 @@ GameObject:
   - component: {fileID: 1572991973}
   - component: {fileID: 1572991972}
   - component: {fileID: 1572991971}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: flame1 (22)
   m_TagString: Fire
   m_Icon: {fileID: 0}
