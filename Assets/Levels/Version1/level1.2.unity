@@ -14284,7 +14284,6 @@ GameObject:
   m_Component:
   - component: {fileID: 632366019}
   - component: {fileID: 632366021}
-  - component: {fileID: 632366020}
   - component: {fileID: 632366022}
   - component: {fileID: 632366023}
   m_Layer: 0
@@ -14308,21 +14307,6 @@ Transform:
   m_Father: {fileID: 1551478790}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &632366020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632366018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae00d9d3c53b2241b9aa004268f0c4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousRoom: {fileID: 1551478790}
-  nextRoom: {fileID: 402985972}
-  cam: {fileID: 519420030}
 --- !u!61 &632366021
 BoxCollider2D:
   m_ObjectHideFlags: 0
