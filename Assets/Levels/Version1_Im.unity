@@ -9334,6 +9334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickedUp: 0
   changeSpeed: 0.5
+  inkJSON: {fileID: 4900000, guid: 2b6afd29fa77d1640a46533b0dc66c4a, type: 3}
   itemSound: {fileID: 8300000, guid: ffcba20aaaa84644fa343035e3cd9cad, type: 3}
 --- !u!95 &393904352
 Animator:
