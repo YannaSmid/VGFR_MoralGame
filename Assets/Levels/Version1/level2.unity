@@ -53338,7 +53338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousRoom: {fileID: 1674762240}
-  nextRoom: {fileID: 345682387}
+  nextRoom: {fileID: 1714264676}
   cam: {fileID: 519420030}
 --- !u!61 &1974298035
 BoxCollider2D:
