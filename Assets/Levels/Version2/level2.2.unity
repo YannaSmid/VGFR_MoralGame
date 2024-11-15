@@ -13075,6 +13075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d3804585946a043803553f9e34dd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lever: {fileID: 0}
   leverTexts: []
   humanTexts:
   - {fileID: 4900000, guid: 80cae0fef6a7eaa4fa4bf307e00eaf4d, type: 3}

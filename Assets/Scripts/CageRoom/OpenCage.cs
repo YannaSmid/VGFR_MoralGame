@@ -6,6 +6,7 @@ public class OpenCage : MonoBehaviour
 {
 
     private DialogueTrigger dialogueTrigger;
+    public GameObject lever;
     
 
     [Header("Ink JSON")]
@@ -32,6 +33,7 @@ public class OpenCage : MonoBehaviour
     {
         // dialogueManager = GameObject.Find("DialogueManager");
         dialogueTrigger = GetComponent<DialogueTrigger>();
+        lever = gameObject.transform.parent.GetChild(0).gameObject;
         
         //dialogueTrigger.inkJSON = textFiles[fileIndex];
     }
@@ -67,7 +69,7 @@ public class OpenCage : MonoBehaviour
     }
 
     public void PullLever(int choice){
-
+        lever.SetActive(false);
         switch(choice) 
         {
         case 0: // Human freed
@@ -76,6 +78,7 @@ public class OpenCage : MonoBehaviour
             NPC.GetComponent<DialogueTrigger>().inkJSON = humanTexts[1]; // Thankful dialogue
             Weapon.GetComponent<DialogueTrigger>().inkJSON = swordTexts[1]; // Sword cannot be gained anymore text
             Cage1.SetActive(false);
+            NPC.GetComponentInParent<RectTransform>().localPosition = new Vector3(-1.67f, -3f, 0f);
             break;
         case 1: // Choose sword
           

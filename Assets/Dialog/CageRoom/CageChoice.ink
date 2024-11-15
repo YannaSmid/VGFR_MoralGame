@@ -3,11 +3,11 @@
 === main ===
 Which cage will you open?
     + [Free the human]
-        -> chosen("Human")
+        -> chosen("to help the human")
     + [Get the sword]
-        -> chosen("Sword")
+        -> chosen("to get the sword...")
         
 === chosen(cage) ===
-You chose {cage}!
+<i>You chose {cage}</i>!
 -> END
 
