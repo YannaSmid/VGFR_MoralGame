@@ -25405,7 +25405,7 @@ Animator:
   m_GameObject: {fileID: 1088074351}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 13d6ffb04e16b88479a65d4d462860e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 762ae10429c7b1f4e8ecef230c4c8925, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -61169,7 +61169,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6bf63fdabf2a544078b2f14699137b5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 722457268bcad2f4ebb4c3ee499643b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -61188,8 +61188,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8997824853537623806}
   m_LocalRotation: {x: -0.009600213, y: -0.00055040006, z: 0.79677016, w: 0.604206}
-  m_LocalPosition: {x: 0.6362094, y: 0.080750465, z: 0.0058490373}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0.34, y: 0.12, z: 0.0058490373}
+  m_LocalScale: {x: 0.7313585, y: 0.54891926, z: 1}
   m_Children: []
   m_Father: {fileID: 8997824853891724679}
   m_RootOrder: 0
@@ -61242,6 +61242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordAvailable: 0
+  swordanim: {fileID: 0}
 --- !u!61 &8997824853891724674
 BoxCollider2D:
   m_ObjectHideFlags: 0

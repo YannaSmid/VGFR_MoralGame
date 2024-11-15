@@ -51,7 +51,7 @@ AnimatorStateMachine:
     m_Position: {x: -150, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6857109696725634458}
-    m_Position: {x: 610, y: -130, z: 0}
+    m_Position: {x: 600, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1495350924550690981}
     m_Position: {x: 80, y: -90, z: 0}
@@ -140,7 +140,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1e439b39f273c2a46a7bf1ecebef7de5, type: 2}
+  m_Motion: {fileID: 7400000, guid: df31539c8aa05834799453f84c932f63, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -267,7 +267,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 91672ca34f7f64344a64712cde53ed55, type: 2}
+  m_Motion: {fileID: 7400000, guid: fa77db20147f6d6488d00ed99eecbe59, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -415,7 +415,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 14438f7e3f30d574cbd9cee9fb129a38, type: 2}
+  m_Motion: {fileID: 7400000, guid: 53e8e328015432948a7b8c7524104fe1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -442,7 +442,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0f73ea317861c944e887dc980fb97de0, type: 2}
+  m_Motion: {fileID: 7400000, guid: c89590fc801acb746b7cda3fad4434d7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -602,7 +602,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 602acd8df439f0742ba4143f04b180c7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 125c1e44a6621af4a9f9b6a84c09d611, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

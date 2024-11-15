@@ -44,6 +44,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 dead = true;
+                anim.SetTrigger("die");
                 StartCoroutine(HandleRespawn());
             }
         }
@@ -72,7 +73,7 @@ public class Health : MonoBehaviour
     private IEnumerator HandleRespawn()
     {
         // Delay to allow death animation or sound to finish if needed
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.7f);
 
         Vector3 respawnPosition;
 
