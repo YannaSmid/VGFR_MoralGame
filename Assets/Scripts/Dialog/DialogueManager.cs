@@ -232,6 +232,12 @@ public class DialogueManager : MonoBehaviour
                 return "CoinRoom";
             if (collider.CompareTag("FireRoom"))
                 return "FireRoom";
+            if (collider.CompareTag("FoodRoom"))
+                return "FoodRoom";
+            if (collider.CompareTag("ShoesRoom"))
+                return "ShoesRoom";
+            if (collider.CompareTag("CageRoom"))
+                return "CageRoom";
         }
 
         return "Unknown Room"; // Default if no room is detected
