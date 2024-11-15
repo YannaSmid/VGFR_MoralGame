@@ -61128,7 +61128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 2145231672}
-  player: {fileID: 0}
+  player: {fileID: 339728065450283972}
   humanTexts:
   - {fileID: 4900000, guid: 33732d6ced5ecaa4e974cc1a25857f43, type: 3}
   - {fileID: 4900000, guid: c2affaf724e51554db21da3dcb3eb206, type: 3}
@@ -61308,6 +61308,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad90225a3078c64db7ad940e9a90d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &339728065450283972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 339728066529960372, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
+  m_PrefabInstance: {fileID: 339728065450283970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305837010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483a09769e6012e45a61c4a4319e6797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5744787399377007615
