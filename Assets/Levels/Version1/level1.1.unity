@@ -11076,9 +11076,10 @@ GameObject:
   m_Component:
   - component: {fileID: 345682387}
   - component: {fileID: 345682388}
+  - component: {fileID: 345682389}
   m_Layer: 0
   m_Name: Coinroom
-  m_TagString: Untagged
+  m_TagString: CoinRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11128,6 +11129,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
+--- !u!61 &345682389
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345682386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10986519, y: 0.76902413}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.60072, y: 7.8116317}
+  m_EdgeRadius: 0
 --- !u!1 &350438277
 GameObject:
   m_ObjectHideFlags: 0
@@ -12489,9 +12516,10 @@ GameObject:
   m_Component:
   - component: {fileID: 402985972}
   - component: {fileID: 402985973}
+  - component: {fileID: 402985974}
   m_Layer: 0
   m_Name: FireRoom
-  m_TagString: Untagged
+  m_TagString: FireRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12543,6 +12571,32 @@ MonoBehaviour:
   enemies:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!61 &402985974
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402985971}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06484985, y: 0.77821803}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.175247, y: 7.6148534}
+  m_EdgeRadius: 0
 --- !u!1 &404631700
 GameObject:
   m_ObjectHideFlags: 0
@@ -22372,6 +22426,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.205656, y: 2.233933}
   m_EdgeRadius: 0
+--- !u!1 &749852104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749852106}
+  - component: {fileID: 749852105}
+  - component: {fileID: 749852107}
+  m_Layer: 0
+  m_Name: Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &749852105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749852104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dcad7d64164b744a194d2e0becf75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &749852106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749852104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04200554, y: -0.2592082, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749852107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749852104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9f3a823cf725f499492fa2c78fdd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: 
 --- !u!1 &750782174
 GameObject:
   m_ObjectHideFlags: 0
@@ -47307,9 +47418,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1714264676}
   - component: {fileID: 1714264677}
+  - component: {fileID: 1714264678}
   m_Layer: 0
   m_Name: FireballRoom
-  m_TagString: Untagged
+  m_TagString: FireballRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47358,6 +47470,32 @@ MonoBehaviour:
   enemies:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!61 &1714264678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714264675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.109864235, y: 0.6591854}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.16126, y: 7.1523952}
+  m_EdgeRadius: 0
 --- !u!1 &1718066424
 GameObject:
   m_ObjectHideFlags: 0
@@ -58057,7 +58195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 2145231672}
-  player: {fileID: 0}
+  player: {fileID: 339728065450283971}
   humanTexts:
   - {fileID: 4900000, guid: 33732d6ced5ecaa4e974cc1a25857f43, type: 3}
   - {fileID: 4900000, guid: c2affaf724e51554db21da3dcb3eb206, type: 3}
@@ -58224,6 +58362,17 @@ PrefabInstance:
       objectReference: {fileID: 637367381}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
+--- !u!114 &339728065450283971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 339728066529960372, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
+  m_PrefabInstance: {fileID: 339728065450283970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305837010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483a09769e6012e45a61c4a4319e6797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5744787399377007615
 PrefabInstance:
   m_ObjectHideFlags: 0

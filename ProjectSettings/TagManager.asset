@@ -9,6 +9,9 @@ TagManager:
   - Checkpoint
   - coin
   - Fire
+  - FireballRoom
+  - CoinRoom
+  - FireRoom
   layers:
   - Default
   - TransparentFX

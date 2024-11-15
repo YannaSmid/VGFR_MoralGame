@@ -38737,7 +38737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 1367743393}
-  player: {fileID: 0}
+  player: {fileID: 1088074358}
   humanTexts:
   - {fileID: 4900000, guid: 33732d6ced5ecaa4e974cc1a25857f43, type: 3}
   - {fileID: 4900000, guid: c2affaf724e51554db21da3dcb3eb206, type: 3}

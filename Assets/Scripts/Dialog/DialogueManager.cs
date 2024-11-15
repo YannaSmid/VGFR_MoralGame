@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
     public int selectedChoice { get; private set; }
     public bool choiceMade {get; private set; }
 
+    private DecisionLogger logger;
+
 
     private void Awake() 
     {
@@ -38,8 +40,6 @@ public class DialogueManager : MonoBehaviour
 
         // dialogueVariables = new DialogueVariables(loadGlobalsJSON);
         // inkExternalFunctions = new InkExternalFunctions();
-
-      
     }
 
     // Start is called before the first frame update
@@ -51,15 +51,22 @@ public class DialogueManager : MonoBehaviour
         // player = GameObject.Find("Player");
         // interact = player.GetComponent<Interact>();
 
-        // get all of the choices text 
+        // Initialize  logger
+        logger = FindObjectOfType<DecisionLogger>();
+        string gameVersion = "1.1"; // Replace with the correct game version
+        string playerID = "Player1"; // Replace with a unique identifier
+        logger.InitializeLogger(gameVersion, playerID);
+
+        // Get all of the choices text
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
-        foreach (GameObject choice in choices) 
+        foreach (GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
     }
+
 
     public static DialogueManager GetInstance() 
     {
@@ -90,20 +97,23 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void ContinueStory(){
-        if (currentStory.canContinue){
-            // set text for the current dialogue line
+    void ContinueStory()
+    {
+        if (currentStory.canContinue)
+        {
+            // Set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
 
-            // display choices, if any, for the dialogue line
+            // Display choices, if any, for the dialogue line
             DisplayChoices();
         }
-        else {
+        else
+        {
             StartCoroutine(ExitDialogueMode());
         }
     }
 
-   private IEnumerator ExitDialogueMode() 
+    private IEnumerator ExitDialogueMode() 
     {
         yield return new WaitForSeconds(0.2f);
         Debug.Log("End of conversation");
@@ -113,37 +123,40 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    private void DisplayChoices() 
+
+    private void DisplayChoices()
     {
-        
         List<Choice> currentChoices = currentStory.currentChoices;
 
-        // defensive check to make sure our UI can support the number of choices coming in
+        // defensive check to ensure the UI can support the number of choices
         if (currentChoices.Count > choices.Length)
         {
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
-                + currentChoices.Count);
+            Debug.LogError($"More choices were given than the UI can support. Choices count: {currentChoices.Count}");
+            return;
         }
 
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
-        if (currentChoices.Count > 0) {
+        if (currentChoices.Count > 0)
+        {
             choicesDisplayed = true;
         }
-        foreach(Choice choice in currentChoices) 
+        foreach (Choice choice in currentChoices)
         {
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
+
         // go through the remaining choices the UI supports and make sure they're hidden
-        for (int i = index; i < choices.Length; i++) 
+        for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
         }
 
         StartCoroutine(ClearChoice());
     }
+
 
     private IEnumerator SelectFirstChoice() 
     {
@@ -162,17 +175,52 @@ public class DialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
     }
-    
 
-     public void MakeChoice(int choiceIndex)
+    public void MakeChoice(int choiceIndex)
     {
-        
+        // Defensive check to ensure the index is within bounds
+        if (choiceIndex < 0 || choiceIndex >= currentStory.currentChoices.Count)
+        {
+            Debug.LogError($"Invalid choice index: {choiceIndex}. Choices count: {currentStory.currentChoices.Count}");
+            return; // Exit the method if the index is invalid
+        }
+
+        // Process the choice
+        string choiceText = currentStory.currentChoices[choiceIndex].text;
         currentStory.ChooseChoiceIndex(choiceIndex);
+
+        // Get the current room name
+        string roomName = GetCurrentRoomName();
+
+        // Log the player's choice along with the room name and timestamp
+        logger.LogDecision($"[{System.DateTime.Now}] Room: {roomName}, Player chose: {choiceText}");
+
         selectedChoice = choiceIndex;
         choiceMade = true;
         choicesDisplayed = false;
+
         ContinueStory();
-        
+    }
+
+    private string GetCurrentRoomName()
+    {
+        // Find the player GameObject
+        GameObject player = GameObject.FindWithTag("Player");
+
+        // Use a small overlap area to detect nearby rooms
+        Collider2D[] nearbyObjects = Physics2D.OverlapCircleAll(player.transform.position, 1f); // Adjust radius if needed
+        foreach (Collider2D collider in nearbyObjects)
+        {
+            // Check for specific room tags
+            if (collider.CompareTag("FireballRoom"))
+                return "FireballRoom";
+            if (collider.CompareTag("CoinRoom"))
+                return "CoinRoom";
+            if (collider.CompareTag("FireRoom"))
+                return "FireRoom";
+        }
+
+        return "Unknown Room"; // Default if no room is detected
     }
 
 }
