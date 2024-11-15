@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     public bool choiceMade {get; private set; }
 
     private DecisionLogger logger;
+    private float choiceStartTime; // Stores the time when choices are shown
+
 
 
     private void Awake() 
@@ -123,7 +125,6 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
@@ -134,6 +135,9 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError($"More choices were given than the UI can support. Choices count: {currentChoices.Count}");
             return;
         }
+
+        // Record the time when the choices are displayed
+        choiceStartTime = Time.time;
 
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
@@ -189,11 +193,14 @@ public class DialogueManager : MonoBehaviour
         string choiceText = currentStory.currentChoices[choiceIndex].text;
         currentStory.ChooseChoiceIndex(choiceIndex);
 
+        // Calculate the time taken to make the decision
+        float timeTaken = Time.time - choiceStartTime;
+
         // Get the current room name
         string roomName = GetCurrentRoomName();
 
-        // Log the player's choice along with the room name and timestamp
-        logger.LogDecision($"[{System.DateTime.Now}] Room: {roomName}, Player chose: {choiceText}");
+        // Log the player's choice, room name, and time taken
+        logger.LogDecision($"Room: {roomName}, Player chose: {choiceText}, Time taken: {timeTaken:F2} seconds");
 
         selectedChoice = choiceIndex;
         choiceMade = true;
@@ -201,6 +208,7 @@ public class DialogueManager : MonoBehaviour
 
         ContinueStory();
     }
+
 
     private string GetCurrentRoomName()
     {
