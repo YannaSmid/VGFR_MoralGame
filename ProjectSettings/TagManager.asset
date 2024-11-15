@@ -12,6 +12,9 @@ TagManager:
   - FireballRoom
   - CoinRoom
   - FireRoom
+  - CageRoom
+  - ShoesRoom
+  - FoodRoom
   layers:
   - Default
   - TransparentFX
