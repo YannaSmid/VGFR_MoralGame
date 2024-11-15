@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using System.Linq;
+
 
 public class DialogueManager : MonoBehaviour
 {
@@ -30,6 +32,9 @@ public class DialogueManager : MonoBehaviour
     private DecisionLogger logger;
     private float choiceStartTime; // Stores the time when choices are shown
 
+    [Header("Player Settings")]
+    public string playerID; // Set this in the Inspector
+
 
 
     private void Awake() 
@@ -53,11 +58,14 @@ public class DialogueManager : MonoBehaviour
         // player = GameObject.Find("Player");
         // interact = player.GetComponent<Interact>();
 
-        // Initialize  logger
+        // Get the current scene name as the game version
+        string gameVersion = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        // Initialize the logger
         logger = FindObjectOfType<DecisionLogger>();
-        string gameVersion = "1.1"; // Replace with the correct game version
-        string playerID = "Player1"; // Replace with a unique identifier
         logger.InitializeLogger(gameVersion, playerID);
+
+        Debug.Log($"Logger initialized for PlayerID: {playerID}, Game Version: {gameVersion}");
 
         // Get all of the choices text
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -68,7 +76,6 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
     }
-
 
     public static DialogueManager GetInstance() 
     {
@@ -209,7 +216,6 @@ public class DialogueManager : MonoBehaviour
         ContinueStory();
     }
 
-
     private string GetCurrentRoomName()
     {
         // Find the player GameObject
@@ -231,4 +237,15 @@ public class DialogueManager : MonoBehaviour
         return "Unknown Room"; // Default if no room is detected
     }
 
+    // Helper function to get all PlayerPrefs keys
+    private IEnumerable<string> PlayerPrefsKeys(string prefix)
+    {
+        foreach (var key in PlayerPrefs.GetString("AllKeys", "").Split(','))
+        {
+            if (key.StartsWith(prefix))
+            {
+                yield return key;
+            }
+        }
+    }
 }
