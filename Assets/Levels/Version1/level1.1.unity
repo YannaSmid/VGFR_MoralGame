@@ -29942,7 +29942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1388438300447749892, guid: 1eb1320670a6a6d42b1e8bfe70f8aae0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.2945824
+      value: -5.65
       objectReference: {fileID: 0}
     - target: {fileID: 1388438300447749892, guid: 1eb1320670a6a6d42b1e8bfe70f8aae0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50800,6 +50800,7 @@ MonoBehaviour:
   - {fileID: 759693658}
   - {fileID: 681362224}
   choicesDisplayed: 0
+  playerID: 
 --- !u!4 &1888249089
 Transform:
   m_ObjectHideFlags: 0
