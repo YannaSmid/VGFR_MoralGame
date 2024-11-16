@@ -103,7 +103,8 @@ public class FireChoice : MonoBehaviour
     {
         if (fireObject != null)
         {
-            fireObject.SetActive(false); // Disable fire GameObject
+            //fireObject.SetActive(false); // Disable fire GameObject
+            Destroy(fireObject);
             Debug.Log("Fire has been disabled!");
         }
     }

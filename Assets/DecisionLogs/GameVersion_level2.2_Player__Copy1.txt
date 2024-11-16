@@ -1,0 +1,3 @@
+[15/11/2024 18:39:06] Room: Unknown Room, Player chose: Get the sword, Time taken: 3.53 seconds
+[15/11/2024 18:39:36] Room: FireRoom, Player chose: Help them, Time taken: 9.42 seconds
+[15/11/2024 18:41:29] Room: CoinRoom, Player chose: Yes, Time taken: 5.16 seconds

@@ -1,3 +1,1 @@
-[11/15/2024 8:24:28 PM] Room: CageRoom, Player chose: Free the human, Time taken: 1.02 seconds
-[11/15/2024 8:24:38 PM] Room: ShoesRoom, Player chose: Complement shoes, Time taken: 0.59 seconds
-[11/15/2024 8:25:00 PM] Room: FoodRoom, Player chose: Eat it yourself, Time taken: 0.89 seconds
+[16/11/2024 10:53:32] Room: Unknown Room, Player chose: Free the human, Time taken: 7.96 seconds

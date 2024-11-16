@@ -17730,7 +17730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737400762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1154099, y: 0.33591318, z: -3.0000799}
+  m_LocalPosition: {x: -0.8, y: 1.69, z: -3.0000799}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 1932933220}
@@ -61296,7 +61296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordAvailable: 0
-  swordanim: {fileID: 0}
+  swordanim: {fileID: 9100000, guid: 13d6ffb04e16b88479a65d4d462860e4, type: 2}
 --- !u!61 &8997824853891724674
 BoxCollider2D:
   m_ObjectHideFlags: 0
