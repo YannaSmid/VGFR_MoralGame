@@ -5901,7 +5901,7 @@ GameObject:
   - component: {fileID: 153684833}
   m_Layer: 0
   m_Name: FoodRoom
-  m_TagString: FoodRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18547,7 +18547,7 @@ GameObject:
   - component: {fileID: 599945961}
   m_Layer: 0
   m_Name: ShoesRoom
-  m_TagString: ShoesRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50280,7 +50280,7 @@ GameObject:
   - component: {fileID: 1714264678}
   m_Layer: 0
   m_Name: FireballRoom
-  m_TagString: FireballRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

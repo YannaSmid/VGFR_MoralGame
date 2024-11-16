@@ -5121,7 +5121,7 @@ GameObject:
   - component: {fileID: 153684833}
   m_Layer: 0
   m_Name: FoodRoom
-  m_TagString: FoodRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20646,7 +20646,7 @@ GameObject:
   - component: {fileID: 735455936}
   m_Layer: 0
   m_Name: CageRoom
-  m_TagString: CageRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48073,7 +48073,7 @@ GameObject:
   - component: {fileID: 1845179354}
   m_Layer: 0
   m_Name: Coinroom
-  m_TagString: CoinRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

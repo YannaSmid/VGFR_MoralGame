@@ -221,23 +221,12 @@ public class DialogueManager : MonoBehaviour
         // Find the player GameObject
         GameObject player = GameObject.FindWithTag("Player");
 
-        // Use a small overlap area to detect nearby rooms
+        // Use overlap area to detect nearby rooms
         Collider2D[] nearbyObjects = Physics2D.OverlapCircleAll(player.transform.position, 1f); // Adjust radius if needed
         foreach (Collider2D collider in nearbyObjects)
         {
-            // Check for specific room tags
-            if (collider.CompareTag("FireballRoom"))
-                return "FireballRoom";
-            if (collider.CompareTag("CoinRoom"))
-                return "CoinRoom";
-            if (collider.CompareTag("FireRoom"))
-                return "FireRoom";
-            if (collider.CompareTag("FoodRoom"))
-                return "FoodRoom";
-            if (collider.CompareTag("ShoesRoom"))
-                return "ShoesRoom";
-            if (collider.CompareTag("CageRoom"))
-                return "CageRoom";
+            if (collider.CompareTag("Room"))
+                return collider.gameObject.name;
         }
 
         return "Unknown Room"; // Default if no room is detected

@@ -21355,7 +21355,7 @@ GameObject:
   - component: {fileID: 745949770}
   m_Layer: 0
   m_Name: FireRoom
-  m_TagString: FireRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29759,7 +29759,7 @@ GameObject:
   - component: {fileID: 1084049628}
   m_Layer: 0
   m_Name: FireballRoom
-  m_TagString: FireballRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54276,7 +54276,7 @@ GameObject:
   - component: {fileID: 1857831366}
   m_Layer: 0
   m_Name: ShoesRoom
-  m_TagString: ShoesRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65480,6 +65480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPosition: {fileID: 1592144144}
+  currentCheckpoint: {fileID: 0}
 --- !u!1 &5895152476067007535
 GameObject:
   m_ObjectHideFlags: 0

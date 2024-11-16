@@ -24174,7 +24174,7 @@ GameObject:
   - component: {fileID: 735455936}
   m_Layer: 0
   m_Name: CageRoom
-  m_TagString: CageRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45426,7 +45426,7 @@ GameObject:
   - component: {fileID: 1556912750}
   m_Layer: 0
   m_Name: ShoesRoom
-  m_TagString: ShoesRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58164,7 +58164,7 @@ GameObject:
   - component: {fileID: 1996638116}
   m_Layer: 0
   m_Name: FireRoom
-  m_TagString: FireRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
