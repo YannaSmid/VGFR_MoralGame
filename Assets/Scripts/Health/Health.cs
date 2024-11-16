@@ -72,21 +72,22 @@ public class Health : MonoBehaviour
 
     private IEnumerator HandleRespawn()
     {
-        // Delay to allow death animation or sound to finish if needed
+        // Delay for death animation
         yield return new WaitForSeconds(0.7f);
 
         Vector3 respawnPosition;
 
-        // Check if a checkpoint exists
-        if (currentCheckpoint != null)
+        // Access PlayerRespawn component
+        PlayerRespawn playerRespawn = GetComponent<PlayerRespawn>();
+        if (playerRespawn != null && playerRespawn.currentCheckpoint != null)
         {
-            // Respawn at most recent checkpoint
-            respawnPosition = currentCheckpoint.position;
+            respawnPosition = playerRespawn.currentCheckpoint.position;
+            Debug.Log("Respawning at checkpoint: " + playerRespawn.currentCheckpoint.name);
         }
         else if (startingPosition != null)
         {
-            // Respawn at starting position
             respawnPosition = startingPosition.position;
+            Debug.LogWarning("No checkpoint found! Respawning at starting position.");
         }
         else
         {
@@ -97,21 +98,11 @@ public class Health : MonoBehaviour
         // Move player to respawn position
         transform.position = respawnPosition;
 
-        // Move camera to appropriate room
+        // Lock camera position to current room
         CameraController cameraController = Camera.main.GetComponent<CameraController>();
         if (cameraController != null)
         {
-            // Check if current checkpoint's parent exists
-            Transform room = currentCheckpoint != null ? currentCheckpoint.parent : null;
-            if (room != null)
-            {
-                room.GetComponent<Room>().ActivateRoom(true);
-                cameraController.MoveToNewRoom(room);
-            }
-            else
-            {
-                Debug.LogError("Room reference for current checkpoint not found!");
-            }
+            cameraController.LockCameraPosition();
         }
         else
         {
@@ -121,7 +112,6 @@ public class Health : MonoBehaviour
         // Respawn player
         Respawn();
     }
-
 
     public void Respawn()
     {
@@ -134,15 +124,13 @@ public class Health : MonoBehaviour
         // Reactivate all attached components
         foreach (Behaviour component in components)
             component.enabled = true;
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if player interacts with a checkpoint
-        if (collision.CompareTag("Checkpoint"))
+        // Unlock camera if necessary
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        if (cameraController != null)
         {
-            currentCheckpoint = collision.transform; // Update current checkpoint
-            Debug.Log("Checkpoint updated: " + currentCheckpoint.name);
+            cameraController.UnlockCameraPosition();
         }
     }
+
 }

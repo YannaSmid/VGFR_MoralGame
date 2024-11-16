@@ -1,3 +1,0 @@
-[16/11/2024 17:10:45] Room: FireballRoom, Player chose: Good luck, Time taken: 1.40 seconds
-[16/11/2024 17:11:04] Room: FoodRoom, Player chose: Give food, Time taken: 1.93 seconds
-[16/11/2024 17:11:18] Room: CoinRoom, Player chose: Yes, Time taken: 2.31 seconds

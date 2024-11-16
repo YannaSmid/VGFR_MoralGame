@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private Transform startingPosition;
-    private Transform currentCheckpoint;
+    public Transform currentCheckpoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +25,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         if (currentCheckpoint != null)
         {
+            Debug.Log("Returning checkpoint position: " + currentCheckpoint.name);
             return currentCheckpoint;
         }
         else
