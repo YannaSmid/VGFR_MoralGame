@@ -27,6 +27,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "Room"){
+            return;
+        }
         hit = true;
         boxCollider.enabled = false;
         anim.SetTrigger("explode");

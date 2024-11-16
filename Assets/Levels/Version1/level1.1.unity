@@ -11095,7 +11095,7 @@ GameObject:
   - component: {fileID: 345682389}
   m_Layer: 0
   m_Name: Coinroom
-  m_TagString: CoinRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12536,7 +12536,7 @@ GameObject:
   - component: {fileID: 402985974}
   m_Layer: 0
   m_Name: FireRoom
-  m_TagString: FireRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23141,7 +23141,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 3, z: 2}
   m_Children: []
   m_Father: {fileID: 1526797009}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!61 &778866622
 BoxCollider2D:
@@ -43419,9 +43419,9 @@ Transform:
   - {fileID: 112464003}
   - {fileID: 56458042}
   - {fileID: 231013816}
-  - {fileID: 1301487417}
   - {fileID: 778866621}
   - {fileID: 2108126590}
+  - {fileID: 1301487417}
   m_Father: {fileID: 391583834}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48142,7 +48142,7 @@ GameObject:
   - component: {fileID: 1714264678}
   m_Layer: 0
   m_Name: FireballRoom
-  m_TagString: FireballRoom
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57552,7 +57552,7 @@ Transform:
   - {fileID: 1430960704}
   - {fileID: 838542187}
   m_Father: {fileID: 1526797009}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111988555
 GameObject:

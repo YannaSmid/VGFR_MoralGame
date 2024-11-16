@@ -16,6 +16,7 @@ TagManager:
   - ShoesRoom
   - FoodRoom
   - resetTrigger
+  - Room
   layers:
   - Default
   - TransparentFX
