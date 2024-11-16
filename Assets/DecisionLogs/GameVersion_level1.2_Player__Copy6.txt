@@ -1,3 +1,0 @@
-[16/11/2024 12:35:18] Room: Unknown Room, Player chose: Free the human, Time taken: 1.42 seconds
-[16/11/2024 12:35:43] Room: Unknown Room, Player chose: Complement shoes, Time taken: 6.16 seconds
-[16/11/2024 12:36:21] Room: Unknown Room, Player chose: Give food, Time taken: 5.10 seconds

@@ -1,3 +1,0 @@
-[16/11/2024 10:54:12] Room: Unknown Room, Player chose: Get the sword, Time taken: 1.30 seconds
-[16/11/2024 10:54:37] Room: Unknown Room, Player chose: Steal the shoes, Time taken: 4.43 seconds
-[16/11/2024 10:55:10] Room: Unknown Room, Player chose: Give food, Time taken: 3.43 seconds
