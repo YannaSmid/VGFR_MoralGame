@@ -1,27 +1,52 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-    [Header("Closed GameObject")]
-    [SerializeField] private GameObject closedObject; // Assign "Closed" GameObject
+    [SerializeField] private Door door; // Reference to Door script
+    [SerializeField] private float boundaryOffset = 1.5f; // Offset to the right of the door
+    [SerializeField] private float finishDelay = 3f; // Delay before transitioning to the finish scene
 
-    private bool triggerActivated = false; // Ensure action only triggers once
+    private Transform player;
+    private bool hasTriggeredFinish = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
     {
-        if (collision.CompareTag("Player") && !triggerActivated)
+        // Find player in scene
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (player == null)
         {
-            triggerActivated = true;
-            EnableClosedObject();
+            Debug.LogError("Player not found in the scene!");
+        }
+
+        // Ensure Door reference is set
+        if (door == null)
+        {
+            Debug.LogError("Door script reference is not assigned!");
         }
     }
 
-    private void EnableClosedObject()
+    private void Update()
     {
-        if (closedObject != null)
+        if (player != null && door != null && !hasTriggeredFinish)
         {
-            closedObject.SetActive(true); // Enable "Closed" GameObject
-            Debug.Log("Closed GameObject has been enabled!");
+            // Calculate boundary position (door's position + offset)
+            float doorBoundary = door.transform.position.x + boundaryOffset;
+
+            // Check if player has crossed the boundary
+            if (player.position.x > doorBoundary)
+            {
+                hasTriggeredFinish = true;
+                Debug.Log("Player crossed the door boundary. Preparing to finish.");
+                StartCoroutine(TriggerFinish());
+            }
         }
+    }
+
+    private System.Collections.IEnumerator TriggerFinish()
+    {
+        yield return new WaitForSeconds(finishDelay); // Wait for specified delay
+        Debug.Log("Loading the finish scene...");
+        SceneManager.LoadScene("FinishScene"); // Load finish scene
     }
 }
