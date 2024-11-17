@@ -1,3 +1,0 @@
-[17/11/2024 21:39:05] Room: CageRoom, Player chose: Free the human, Time taken: 1.59 seconds
-[17/11/2024 21:39:18] Room: FireRoom, Player chose: Don't help them, Time taken: 0.19 seconds
-[17/11/2024 21:39:44] Room: ShoesRoom, Player chose: Steal the shoes, Time taken: 1.96 seconds

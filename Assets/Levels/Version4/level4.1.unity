@@ -13223,7 +13223,7 @@ Transform:
   - {fileID: 563160966}
   - {fileID: 77130826}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393749142
 GameObject:
@@ -17368,7 +17368,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &507660528
 MonoBehaviour:
@@ -27949,7 +27949,7 @@ MonoBehaviour:
   previousRoom: {fileID: 1556912748}
   nextRoom: {fileID: 563160966}
   cam: {fileID: 519420030}
-  barrier: {fileID: 871083996}
+  barrier: {fileID: 1787222285}
   decisionTracker: {fileID: 937835474}
 --- !u!61 &871083999
 BoxCollider2D:
@@ -29503,7 +29503,7 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 937835474}
   leftShoe: {fileID: 1739266046}
   rightShoe: {fileID: 1060827867}
-  player: {fileID: 0}
+  player: {fileID: 1873667929}
   increment: 5
   humanTexts:
   - {fileID: 4900000, guid: 4b26c79fa53a05c4d9b8c514b8568af8, type: 3}
@@ -29944,6 +29944,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &950219561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950219562}
+  - component: {fileID: 950219563}
+  m_Layer: 0
+  m_Name: Checkpoint3 (1)
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950219562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950219561}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.8, y: -1.617, z: -0.64161384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1106673722}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &950219563
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950219561}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.102828026, y: 2.2954805}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.205656, y: 7.2362037}
+  m_EdgeRadius: 0
 --- !u!1 &950558532
 GameObject:
   m_ObjectHideFlags: 0
@@ -33492,7 +33549,7 @@ Transform:
   - {fileID: 1298286772}
   - {fileID: 141488846}
   m_Father: {fileID: 1106673722}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067900329
 GameObject:
@@ -34474,6 +34531,7 @@ Transform:
   - {fileID: 986523484}
   - {fileID: 366841255}
   - {fileID: 163851119}
+  - {fileID: 950219562}
   - {fileID: 1061424635}
   m_Father: {fileID: 391583834}
   m_RootOrder: 4
@@ -35601,7 +35659,7 @@ Transform:
   - {fileID: 76700047}
   - {fileID: 1023056325}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129330134
 GameObject:
@@ -35709,7 +35767,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138188343
 GameObject:
@@ -36193,7 +36251,7 @@ RectTransform:
   m_Children:
   - {fileID: 996793218}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -39802,7 +39860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6235141898098784502, guid: 6ef097aaca1c23643a506c6c573d6826, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6235141898098784502, guid: 6ef097aaca1c23643a506c6c573d6826, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47413,7 +47471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1634087142
 GameObject:
@@ -47719,9 +47777,8 @@ Transform:
   - {fileID: 668477925}
   - {fileID: 1893039546}
   - {fileID: 846652868}
-  - {fileID: 1873667923}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646037760
 GameObject:
@@ -53132,8 +53189,8 @@ Transform:
   m_Children:
   - {fileID: 1685537252}
   - {fileID: 1113518218}
-  m_Father: {fileID: 1645924983}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1873667924
 MonoBehaviour:
@@ -53160,7 +53217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f41e2c69cdc2a94aa86d60368350fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {fileID: 0}
+  startingPosition: {fileID: 1674762240}
   currentCheckpoint: {fileID: 0}
 --- !u!114 &1873667926
 MonoBehaviour:
@@ -53182,7 +53239,7 @@ MonoBehaviour:
   - {fileID: 1873667929}
   - {fileID: 1873667926}
   invulnerable: 0
-  startingPosition: {fileID: 0}
+  startingPosition: {fileID: 1674762240}
 --- !u!95 &1873667927
 Animator:
   serializedVersion: 3
@@ -54139,7 +54196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889150891
 GameObject:
@@ -56256,7 +56313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953719020
 GameObject:

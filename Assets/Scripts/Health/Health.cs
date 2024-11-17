@@ -72,6 +72,11 @@ public class Health : MonoBehaviour
 
     private IEnumerator HandleRespawn()
     {
+        // Disable movement while the player is dead
+        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+            playerMovement.enabled = false;
+
         // Delay for death animation
         yield return new WaitForSeconds(0.7f);
 
@@ -109,9 +114,13 @@ public class Health : MonoBehaviour
             Debug.LogError("CameraController not found!");
         }
 
-        // Respawn player
         Respawn();
+
+        // Re-enable movement after respawn
+        if (playerMovement != null)
+            playerMovement.enabled = true;
     }
+
 
     public void Respawn()
     {
