@@ -24195,7 +24195,7 @@ MonoBehaviour:
   - {fileID: 120895569}
   - {fileID: 1588046691}
   choicesDisplayed: 0
-  playerID: 
+  playerID: 10
 --- !u!4 &978877956
 Transform:
   m_ObjectHideFlags: 0
