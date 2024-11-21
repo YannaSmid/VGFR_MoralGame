@@ -24342,7 +24342,7 @@ MonoBehaviour:
   - {fileID: 1654114942}
   - {fileID: 1354362099}
   choicesDisplayed: 0
-  playerID: 8
+  playerID: 12
 --- !u!4 &978877956
 Transform:
   m_ObjectHideFlags: 0
