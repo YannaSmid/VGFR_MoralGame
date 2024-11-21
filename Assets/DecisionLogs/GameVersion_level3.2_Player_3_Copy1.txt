@@ -1,0 +1,3 @@
+[21/11/2024 10:09:49] Room: FireballRoom, Player chose: Good luck, Time taken: 4.19 seconds
+[21/11/2024 10:10:19] Room: FireRoom, Player chose: Help them, Time taken: 2.77 seconds
+[21/11/2024 10:11:09] Room: ShoesRoom, Player chose: Complement shoes, Time taken: 6.49 seconds

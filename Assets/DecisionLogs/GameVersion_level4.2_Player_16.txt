@@ -1,0 +1,3 @@
+[21/11/2024 10:20:27] Room: FireballRoom, Player chose: Kill her to take over her power, Time taken: 18.66 seconds
+[21/11/2024 10:21:33] Room: FoodRoom, Player chose: Give food, Time taken: 2.09 seconds
+[21/11/2024 10:22:01] Room: Coinroom, Player chose: Yes, Time taken: 3.70 seconds

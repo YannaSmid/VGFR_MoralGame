@@ -1,0 +1,3 @@
+[21/11/2024 14:31:30] Room: CageRoom, Player chose: Free the human, Time taken: 1.64 seconds
+[21/11/2024 14:31:47] Room: FireRoom, Player chose: Help them, Time taken: 1.21 seconds
+[21/11/2024 14:32:05] Room: Coinroom, Player chose: Yes, Time taken: 0.80 seconds
