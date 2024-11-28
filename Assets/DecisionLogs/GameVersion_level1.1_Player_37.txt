@@ -1,0 +1,3 @@
+[11/28/2024 3:37:49 PM] Room: FireballRoom, Player chose: Good luck, Time taken: 4.53 seconds
+[11/28/2024 3:38:43 PM] Room: Coinroom, Player chose: Yes, Time taken: 1.93 seconds
+[11/28/2024 3:40:42 PM] Room: FireRoom, Player chose: Help them, Time taken: 1.85 seconds
