@@ -1,0 +1,3 @@
+[11/28/2024 3:42:31 PM] Room: CageRoom, Player chose: Free the human, Time taken: 1.67 seconds
+[11/28/2024 3:43:09 PM] Room: ShoesRoom, Player chose: Complement shoes, Time taken: 2.67 seconds
+[11/28/2024 3:44:03 PM] Room: FoodRoom, Player chose: Give food, Time taken: 1.66 seconds
