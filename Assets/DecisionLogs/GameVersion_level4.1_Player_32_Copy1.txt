@@ -1,0 +1,3 @@
+[27/11/2024 12:34:36] Room: CageRoom, Player chose: Get the sword, Time taken: 2.43 seconds
+[27/11/2024 12:34:54] Room: FireRoom, Player chose: Help them, Time taken: 2.88 seconds
+[27/11/2024 12:35:36] Room: ShoesRoom, Player chose: Steal the shoes, Time taken: 1.80 seconds

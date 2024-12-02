@@ -1,0 +1,2 @@
+[27/11/2024 12:31:03] Room: CageRoom, Player chose: Get the sword, Time taken: 2.81 seconds
+[27/11/2024 12:31:28] Room: FireRoom, Player chose: Help them, Time taken: 4.64 seconds
